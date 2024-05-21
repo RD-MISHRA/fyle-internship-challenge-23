@@ -1,0 +1,40 @@
+<div class="fixed inset-x-0 bottom-0 flex justify-center p-4 bg-white shadow-md">
+  <nav class="flex items-center space-x-2">
+    <button   
+      (click)="changePage(currentPage - 1)"
+      [disabled]="currentPage === 1"
+      class="px-4 py-2 text-black-500 bg-blue-500 rounded hover:bg-blue-400 disabled:opacity-50"
+    >
+      Previous
+    </button>
+    <button
+      *ngFor="let page of pages"
+      (click)="changePage(page)"
+      [class.bg-blue-500]="page === currentPage"
+      [class.text-white]="page === currentPage"
+      class="px-4 py-2 text-BLACK-700 bg-blue-500 rounded hover:bg-gray-300"
+    >
+      {{ page }}
+    </button>
+    <button
+      (click)="changePage(currentPage + 1)"
+      [disabled]="currentPage === totalPages"
+      class="px-4 py-2 text-black-500 bg-blue-500 rounded hover:bg-blue-400 disabled:opacity-50"
+    >
+      Next
+    </button>
+  </nav>
+  <div class="flex items-center space-x-2 ml-4">
+    <label for="itemsPerPage" class="text-gray-700">Items per page:</label>
+    <select
+      id="itemsPerPage"
+      (change)="onItemsPerPageChange($event)"
+      [(ngModel)]="itemsPerPage"
+      class="px-2 py-1 bg-gray-200 rounded"
+    >
+      <option *ngFor="let size of availableItemsPerPage" [value]="size">
+        {{ size }}
+      </option>
+    </select>
+  </div>
+</div>

@@ -1,5 +1,148 @@
-<div class="grid h-screen place-items-center">
-  <div class="font-bold text-3xl">
-    Fyle Internship Challenge
-  </div>
+<div class="flex items-start justify-center mt-4">
+  <input type="text" [(ngModel)]="searchQuery" placeholder="Search..." class="px-40 py-2 border border-gray-300 shadow-sm rounded-l-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+  <button (click)="search()" class="ml-2 px-6 py-2 bg-indigo-600 text-white rounded-r-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Search</button>
 </div>
+
+
+
+<div style="display: flex;">
+  <div class="flex-none mr-4">
+    <div *ngIf="userData">
+      <img *ngIf="!loading" class="w-40 h-40 rounded-full mr-4 outline outline-offset-2 outline-1" [src]="userData.avatar_url" alt="User Avatar">
+      <div *ngIf="loading">
+        <div>
+          <div class="animate-pulse flex justify-start">
+            <div class="rounded-full bg-slate-700 h-40 w-40"></div>
+          </div>
+        </div>
+        
+      
+      </div>
+    </div>
+  </div>
+
+  <div class="flex justify-center items-start mt-20">
+    <div>
+      <div class="list-disc pl-5">
+        <p>
+          <!-- Use ngIf to show user data only when it's available -->
+          <ng-container *ngIf="!loading; else skeletonData">
+            <p>NAME: {{ userData.name }}</p>
+            <p>BIO: {{ userData.bio }}</p>
+            <p>Location: {{ userData.location }}</p>
+            <p>About: {{ userData.about }}</p>
+            <p>No of Repositories: {{ userData.public_repos }}</p>
+          </ng-container>
+        </p>
+      </div>
+    </div>
+  </div>
+  
+  <ng-template #skeletonData>
+    <div class="animate-pulse space-y-4">
+      <div class="h-4 bg-gray-300 rounded"></div>
+      <div class="h-4 bg-gray-300 rounded"></div>
+      <div class="h-4 bg-gray-300 rounded"></div>
+      <div class="h-4 bg-gray-300 rounded"></div>
+      <div class="h-4 bg-gray-300 rounded"></div>
+    </div>
+  </ng-template>
+  
+</div>
+
+
+<!-- <div *ngIf="loading" class="flex justify-center items-center h-screen">
+  <ng-template #skeletonData>
+    
+    <div class="flex flex-col">
+      <div class="bg-gray-200 border border-gray-300 rounded-md shadow-md h-6 mb-2 animate-pulse"></div>
+      <div class="bg-gray-200 border border-gray-300 rounded-md shadow-md h-6 mb-2 animate-pulse"></div>
+      <div class="bg-gray-200 border border-gray-300 rounded-md shadow-md h-6  mb-2 animate-pulse"></div>
+      <div class="bg-gray-200 border border-gray-300 rounded-md shadow-md h-6  mb-2 animate-pulse"></div>
+      <div class="bg-gray-200 border border-gray-300 rounded-md shadow-md h-6 mb-2 animate-pulse"></div>
+    </div>
+    
+    
+  </ng-template>
+</div> -->
+
+
+
+
+
+
+
+
+<div class="container mx-auto mt-10">
+  <div *ngIf="loading" class="flex flex-wrap justify-center">
+    <ng-container *ngIf="loading">
+      <ng-container *ngFor="let skeleton of skeletons">
+        <div class="w-full sm:w-1/2">
+          <div class="p-4">
+            <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 border border-black animate-pulse">
+              <div class="mb-4">
+                <div class="h-6 bg-gray-300 rounded w-3/4 mb-2"></div>
+                <div class="h-4 bg-gray-300 rounded w-full mb-2"></div>
+                <div class="h-4 bg-gray-300 rounded w-1/2 mb-2"></div>
+                <div class="h-4 bg-gray-300 rounded w-full mb-2"></div>
+                <div class="h-4 bg-gray-300 rounded w-1/3 mb-2"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </ng-container>
+  </div>
+
+  <ng-container *ngIf="!loading">
+    <!-- Actual Content -->
+    <div class="flex flex-wrap">
+      <ng-container *ngFor="let item of userRepos; let i = index">
+        <div class="w-full sm:w-1/2">
+          <div class="p-4">
+            <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 border border-black">
+              <div class="mb-4">
+                <h2 class="text-xl text-blue-500 font-bold">{{ userRepos[i].name }}</h2>
+                <p class="text-gray-700 text-base line-clamp-3">Description: {{ userRepos[i].description }}</p>
+                <p class="text-gray-700 text-base">Languages Used:</p>
+                <div class="inline-block space-x-2 mx-2">
+                  <ng-container *ngFor="let lang of userRepos[i].languages | keyvalue">
+                    <div class="bg-blue-500 p-2 inline-block rounded-lg text-white">{{ lang.key }}</div>
+                  </ng-container>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </ng-container>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container mx-auto mt-10">
+  <app-pagination
+    [totalItems]="userData.public_repos"
+    [itemsPerPage]="itemsPerPage"
+    [currentPage]="currentPage"
+    (pageChange)="onPageChange($event)"
+    (itemsPerPageChange)="onItemsPerPageChange($event)"
+  ></app-pagination>
+  <!-- Your data display logic here -->
+</div>
+
+
+
+
+
+
