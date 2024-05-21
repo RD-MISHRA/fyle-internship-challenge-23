@@ -201,7 +201,7 @@ import { Observable, of, throwError } from 'rxjs';
 })
 export class ApiService {
 
-  private accessToken = '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';
+  private accessToken = '';
 
   constructor(private httpClient: HttpClient) { }
 
