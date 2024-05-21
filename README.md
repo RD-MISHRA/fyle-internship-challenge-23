@@ -1,4 +1,37 @@
+#On landing page we have serch bar in which we can search for users
 ![Screenshot (1081)](https://github.com/RD-MISHRA/fyle-internship-challenge-23/assets/125600380/4052003a-56ec-4728-ace8-c7248a788464)
+
+#When the API calls are in progress,  a skeleton loader appears
+![Screenshot (1082)](https://github.com/RD-MISHRA/fyle-internship-challenge-23/assets/125600380/d0be9878-6e62-492a-9b7a-c6d24c38c7d3)
+
+# image represents a topic of a particular repository, one repository could have multiple topics
+![Screenshot (1081)](https://github.com/RD-MISHRA/fyle-internship-challenge-23/assets/125600380/ae9e8860-4b00-422e-9d80-24e3ea2d482f)
+
+
+#pagination 
+![Screenshot (1082)](https://github.com/RD-MISHRA/fyle-internship-challenge-23/assets/125600380/9dffd229-2317-4bf8-821d-90f2ddb94cd0)
+
+#To run test cases clone this repository 
+#use "npm install"
+#use "ng test"
+![Screenshot (1083)](https://github.com/RD-MISHRA/fyle-internship-challenge-23/assets/125600380/7458f1d3-131b-4b15-8f61-2692d2de1ae4)
+
+
+#you can use call api any number of time if you have "github ACCESS TOKEN"("If you don't want to use an access token, then just comment out the entire code and uncomment the commented code")
+private accessToken = 'WRITE YOR GITHUB ACCESS TOKEN HERE';
+
+
+## Installation
+1. Clone the  repository and proceed with steps mentioned below.
+### Install requirements
+* Install angular cli [Ref](https://angular.io/cli)
+* `npm install` in this repository 
+
+## Development server
+Run `ng serve` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
+
+
+
 
 
 
