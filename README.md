@@ -1,8 +1,10 @@
 # On landing page we have serch bar in which we can search for users
-![Screenshot (1081)](https://github.com/RD-MISHRA/fyle-internship-challenge-23/assets/125600380/4052003a-56ec-4728-ace8-c7248a788464)
+![Screenshot (1087)](https://github.com/RD-MISHRA/fyle-internship-challenge-23/assets/125600380/b68f0c36-f32d-467a-9a50-9b7d24c6bd0b)
+
 
 # When the API calls are in progress,  a skeleton loader appears
-![Screenshot (1082)](https://github.com/RD-MISHRA/fyle-internship-challenge-23/assets/125600380/d0be9878-6e62-492a-9b7a-c6d24c38c7d3)
+![Screenshot (1079)](https://github.com/RD-MISHRA/fyle-internship-challenge-23/assets/125600380/6d7cdd58-f696-4936-9571-aadbafa6d669)
+
 
 # image represents a topic of a particular repository, one repository could have multiple topics
 ![Screenshot (1081)](https://github.com/RD-MISHRA/fyle-internship-challenge-23/assets/125600380/ae9e8860-4b00-422e-9d80-24e3ea2d482f)
